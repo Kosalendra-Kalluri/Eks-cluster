@@ -10,10 +10,9 @@ pipeline {
 
         stage('Set AWS Credentials') {
             steps {
-                withCredentials([[$class: 'UsernamePasswordMultiBinding',
-                                  credentialsId: 'aws-access',
-                                  usernameVariable: 'AWS_ACCESS_KEY_ID',
-                                  passwordVariable: 'AWS_SECRET_ACCESS_KEY']]) {
+                withCredentials([[$class: 'AmazonWebServicesCredentialsBinding'
+                                  credentialsId: 'aws-access'
+                                  ]]) {
                     echo "AWS credentials set."
                 }
             }
