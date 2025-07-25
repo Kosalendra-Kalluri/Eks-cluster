@@ -10,7 +10,7 @@ pipeline {
 
         stage('Set AWS Credentials') {
             steps {
-                withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', credentialsId: 'aws-access']]) {
+                withAWS([[credentials: 'aws-access', region: "${local.region}"]]) {
                     echo "AWS credentials set."
                 }
             }
