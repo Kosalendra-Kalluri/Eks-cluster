@@ -47,6 +47,8 @@ pipeline {
         }
         stage('Terraform destroy'){
             steps{
-                bat 'terraform destroy'
+                bat 'terraform destroy
+            }
+        }
     }
 }
